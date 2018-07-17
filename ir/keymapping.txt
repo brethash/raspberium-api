@@ -1,0 +1,30 @@
+KEY_POWER = power button
+KEY_LOGOFF = off time
+KEY_O = on time
+KEY_SETUP = set clock
+KEY_KPPLUS = hour +
+KEY_KPMINUS = min -
+KEY_ENTER = enter
+KEY_RESTART = resume
+KEY_RED = red
+KEY_YELLOW = yellow
+KEY_BLUE = blue
+KEY_P = purple
+KEY_PAGEUP = red up
+KEY_SCROLLUP = green up
+KEY_WAKEUP = purple up
+KEY_UP = white up
+KEY_PROG1 = M1
+KEY_PROG2 = M2
+KEY_CALENDAR = daylight
+BTN_MODE = moon light
+BTN_MOUSE = blue moon
+KEY_MEMO = black moon
+KEY_CLOSE = partly cloudy
+KEY_SUBTITLE = sunny
+KEY_CLOSECD = mostly cloudy
+KEY_STOP = storm 1 
+KEY_STOPCD = storm 2
+BTN_EXTRA = rain
+
+IR LED with a 5v power supply and a 330 ohm resistor in series. 

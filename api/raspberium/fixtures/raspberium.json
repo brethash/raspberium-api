@@ -1,0 +1,29 @@
+[
+  {
+    "model": "raspberium.device",
+    "fields": {
+      "name": "Lights",
+      "pin": 7,
+      "state": "auto",
+      "status": "on"
+    }
+  },
+  {
+    "model": "raspberium.device",
+    "fields": {
+      "name": "Misting Pump",
+      "pin": 8,
+      "state": "auto",
+      "status": "off"
+    }
+  },
+  {
+    "model": "raspberium.device",
+    "fields": {
+      "name": "Waterfall Pump",
+      "pin": 9,
+      "state": "auto",
+      "status": "on"
+    }
+  }
+]

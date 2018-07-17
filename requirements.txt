@@ -1,0 +1,6 @@
+Django==2.0.6
+djangorestframework
+django_crontab
+django-choices
+python-lirc
+py_irsend

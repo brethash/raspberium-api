@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "8000:8000"
+    volumes:
+     - .:/api
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - migration
+    tty: true
+  migration:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py loaddata raspberium.json"
+    volumes:
+     - .:/api
