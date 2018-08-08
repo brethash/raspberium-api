@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User, Group
 from django.http import Http404
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 
 from api.raspberium.models import Device
@@ -33,13 +35,16 @@ class DevicesViewSet(generics.ListAPIView, viewsets.ModelViewSet):
     serializer_class = DeviceSerializer
 
 
-class DigitalDeviceOn(APIView):
-    def get(self, request, deviceName):
-        device = self.setupDevice(deviceName)
-        DigitalDeviceProcessor(device).on()
+@api_view(['GET'])
+def digital_device_on(request, version, device_name):
+    device = setup_device(device_name)
+    return DigitalDeviceProcessor(device).on()
 
-    def setupDevice(self, deviceName):
-        try:
-            return Device.objects.find.filter(name=deviceName)
-        except Device.DoesNotExist:
-            raise Http404
+
+def setup_device(device_name):
+
+    device = Device.objects.get(name__exact=device_name)
+    if not device:
+        raise Http404
+
+    return device

@@ -1,3 +1,4 @@
+djchoices
 Django==2.0.6
 djangorestframework
 django_crontab

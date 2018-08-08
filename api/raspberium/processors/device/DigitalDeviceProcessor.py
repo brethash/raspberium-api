@@ -2,7 +2,7 @@ from django.http import JsonResponse
 
 from api.raspberium.domain.device.DigitalDevice import DigitalDevice
 from api.raspberium.models import Device
-from api_bckap.raspberium.serializers import DeviceSerializer
+from api.raspberium.serializers import DeviceSerializer
 
 
 class DigitalDeviceProcessor:
@@ -18,9 +18,10 @@ class DigitalDeviceProcessor:
             if serializer.is_valid():
                 serializer.save()
         except:
-            return JsonResponse("%s could not be turned on." % self.device.label)
+            error_string = "{0} could not be turned on.".format(self.device.label)
+            return JsonResponse([error_string], safe=False)
 
-        return JsonResponse("%s was turned on." % self.device.label)
+        return JsonResponse(["%s was turned on." % self.device.label], safe=False)
 
     def off(self):
         try:
@@ -30,6 +31,6 @@ class DigitalDeviceProcessor:
             if serializer.is_valid():
                 serializer.save()
         except:
-            return JsonResponse("%s could not be turned off." % self.device.label)
+            return JsonResponse(["%s could not be turned off." % self.device.label], safe=False)
 
-        return JsonResponse("%s was turned off." % self.device.label)
+        return JsonResponse(["%s was turned off." % self.device.label], safe=False)
