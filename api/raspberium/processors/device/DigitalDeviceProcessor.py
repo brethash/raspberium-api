@@ -18,10 +18,9 @@ class DigitalDeviceProcessor:
             if serializer.is_valid():
                 serializer.save()
         except:
-            error_string = "{0} could not be turned on.".format(self.device.label)
-            return JsonResponse([error_string], safe=False)
+            return "{0} could not be turned on.".format(self.device.label)
 
-        return JsonResponse(["%s was turned on." % self.device.label], safe=False)
+        return "%s was turned on." % self.device.label
 
     def off(self):
         try:
@@ -31,6 +30,6 @@ class DigitalDeviceProcessor:
             if serializer.is_valid():
                 serializer.save()
         except:
-            return JsonResponse(["%s could not be turned off." % self.device.label], safe=False)
+            return "%s could not be turned off." % self.device.label
 
-        return JsonResponse(["%s was turned off." % self.device.label], safe=False)
+        return "%s was turned off." % self.device.label

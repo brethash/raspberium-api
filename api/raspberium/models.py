@@ -4,7 +4,6 @@ from djchoices import DjangoChoices
 
 
 class Device(models.Model):
-    DoesNotExist = None
 
     class State(DjangoChoices):
         Off = ChoiceItem("off")
@@ -28,6 +27,11 @@ class Device(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.label, self.name, self.pin, self.state, self.status)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'device'
+        verbose_name_plural = 'devices'
 
 # class Configuration(models.Model):
 #     # configuration name
