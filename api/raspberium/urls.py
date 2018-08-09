@@ -10,5 +10,5 @@ router = urls.router
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^device/(?P<deviceName>\s+)/on$', views.DigitalDeviceOn, name='urlname'),
+    url(r'^device/(?P<device_name>[a-z0-9]+)/on$', views.digital_device_on, name='urlname'),
 ]
