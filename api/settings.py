@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_crontab',
     'api.raspberium',
-    'py_irsend'
+    'py_irsend',
+    'pyHS100'
 ]
 
 MIDDLEWARE = [

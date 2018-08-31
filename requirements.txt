@@ -5,3 +5,4 @@ django_crontab
 django-choices
 python-lirc
 py_irsend
+pyHS100
