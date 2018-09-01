@@ -1,5 +1,3 @@
-from django.http import JsonResponse
-
 from api.raspberium.domain.device.DigitalDevice import DigitalDevice
 from api.raspberium.models import Device
 from api.raspberium.serializers import DeviceSerializer

@@ -1,4 +1,4 @@
-from gpiozero import DigitalOutputDevice
+from pyHS100 import SmartPlug
 
 from api.raspberium.domain.device.RaspberiumDevice import RaspberiumDevice
 
@@ -6,7 +6,7 @@ from api.raspberium.domain.device.RaspberiumDevice import RaspberiumDevice
 class DigitalDevice(RaspberiumDevice):
     def __init__(self, pin):
         super().__init__()
-        self.digitalOutputDevice = DigitalOutputDevice(pin)
+        self.digitalOutputDevice = SmartPlug(pin)
 
     def on(self):
         self.digitalOutputDevice.on()
