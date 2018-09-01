@@ -5,7 +5,8 @@
       "name": "Lights",
       "pin": 7,
       "state": "auto",
-      "status": "on"
+      "status": "on",
+      "address": "000.000.000.000"
     }
   },
   {
@@ -14,7 +15,8 @@
       "name": "Misting Pump",
       "pin": 8,
       "state": "auto",
-      "status": "off"
+      "status": "off",
+      "address": "000.000.000.000"
     }
   },
   {
@@ -23,7 +25,8 @@
       "name": "Waterfall Pump",
       "pin": 9,
       "state": "auto",
-      "status": "on"
+      "status": "on",
+      "address": "000.000.000.000"
     }
   }
 ]

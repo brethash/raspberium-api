@@ -4,7 +4,6 @@ from djchoices import DjangoChoices
 
 
 class Device(models.Model):
-
     class State(DjangoChoices):
         Off = ChoiceItem("off")
         On = ChoiceItem("on")
@@ -24,6 +23,8 @@ class Device(models.Model):
     state = models.CharField(max_length=4, choices=State.choices, help_text="This is the default state of the device.")
     # status of the device
     status = models.CharField(max_length=3, editable=False, default=Status.Off)
+    # the IP address of the Kasa Smart Plug
+    address = models.CharField(max_length=15, null=True, help_text="This is the address of a Kasa Smart Plug.")
 
     def __str__(self):
         return "{} - {}".format(self.label, self.name, self.pin, self.state, self.status)
@@ -32,10 +33,3 @@ class Device(models.Model):
         ordering = ('name',)
         verbose_name = 'device'
         verbose_name_plural = 'devices'
-
-# class Configuration(models.Model):
-#     # configuration name
-#     name = models.CharField(max_length=255, null=False)
-#
-#     def __str__(self):
-#         return "{} - {}".format(self.name, self.pin, self.state, self.status)
