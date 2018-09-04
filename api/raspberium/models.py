@@ -18,7 +18,7 @@ class Device(models.Model):
     # device
     name = models.CharField(max_length=255, null=False, unique=True)
     # pin's physical number (NOT GPIO!!!)
-    pin = models.IntegerField(null=False, help_text="This is the physical pin that the device is connected to.")
+    pin = models.IntegerField(null=True, help_text="This is the physical pin that the device is connected to.")
     # state of the pin
     state = models.CharField(max_length=4, choices=State.choices, help_text="This is the default state of the device.")
     # status of the device
