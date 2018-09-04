@@ -92,9 +92,9 @@ DATABASES = {
 
 # FIXTURES
 # https://code.djangoproject.com/wiki/Fixtures
-# FIXTURE_DIRS = (
-#    os.path.join(BASE_DIR, 'api/raspberium/fixtures/'),
-# )
+FIXTURE_DIRS = (
+   os.path.join(BASE_DIR, 'api/raspberium/fixtures/'),
+)
 
 
 # Password validation
