@@ -1,5 +1,4 @@
-djchoices
-Django==2.0.6
+Django==2.1.1
 djangorestframework
 django_crontab
 django-choices
