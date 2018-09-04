@@ -6,7 +6,7 @@ from api.raspberium.serializers import DeviceSerializer
 class DigitalDeviceProcessor:
     def __init__(self, device):
         self.device = (Device)(device)
-        self.digitalDevice = DigitalDevice(device.pin)
+        self.digitalDevice = DigitalDevice(device.address)
 
     def on(self):
         try:
