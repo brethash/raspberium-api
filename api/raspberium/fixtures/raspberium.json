@@ -4,7 +4,7 @@
     "fields": {
       "label": "Lights",
       "name": "lights",
-      "pin": null,
+      "pin": 0,
       "state": "auto",
       "status": "on",
       "address": "000.000.000.000"
@@ -15,7 +15,7 @@
     "fields": {
       "label": "Drip Wall",
       "name": "drip-wall",
-      "pin": null,
+      "pin": 0,
       "state": "auto",
       "status": "off",
       "address": "192.168.1.72"
@@ -26,7 +26,7 @@
     "fields": {
       "label": "Fogger",
       "name": "fogger",
-      "pin": null,
+      "pin": 0,
       "state": "auto",
       "status": "off",
       "address": "192.168.1.71"
@@ -37,7 +37,7 @@
     "fields": {
       "label": "Waterfall",
       "name": "waterfall",
-      "pin": null,
+      "pin": 0,
       "state": "auto",
       "status": "off",
       "address": "192.168.1.73"
