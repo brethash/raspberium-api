@@ -1,9 +1,11 @@
 from django.http import Http404
+from pyHS100 import Discover
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.raspberium.models import Device
 from api.raspberium.processors.device.DigitalDeviceProcessor import DigitalDeviceProcessor
+from api.raspberium.serializers import SmartPlugSerializer
 
 
 class DigitalDeviceApiView(APIView):
@@ -15,17 +17,23 @@ class DigitalDeviceApiView(APIView):
             raise Http404
 
 
+class DigitalDeviceAddresses(APIView):
+
+    def get(self, request, version, format=None):
+        discoverResponse = Discover.discover()
+        serlializer = SmartPlugSerializer()
+        return Response(serlializer.discover_to_serializable(discoverResponse))
+
+
 class DigitalDeviceOn(DigitalDeviceApiView):
 
     def get(self, request, version, device_name, format=None):
         device = self.setup_device(device_name)
-        action = DigitalDeviceProcessor(device).on()
-        return Response({action})
+        return DigitalDeviceProcessor(device).on()
 
 
 class DigitalDeviceOff(DigitalDeviceApiView):
 
     def get(self, request, version, device_name, format=None):
         device = self.setup_device(device_name)
-        action = DigitalDeviceProcessor(device).off()
-        return Response({action})
+        return DigitalDeviceProcessor(device).off()

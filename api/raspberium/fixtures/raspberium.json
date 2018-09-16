@@ -2,28 +2,45 @@
   {
     "model": "raspberium.device",
     "fields": {
-      "name": "Lights",
-      "pin": 7,
+      "label": "Lights",
+      "name": "lights",
+      "pin": 0,
       "state": "auto",
-      "status": "on"
+      "status": "on",
+      "address": "000.000.000.000"
     }
   },
   {
     "model": "raspberium.device",
     "fields": {
-      "name": "Misting Pump",
-      "pin": 8,
+      "label": "Drip Wall",
+      "name": "drip-wall",
+      "pin": 0,
       "state": "auto",
-      "status": "off"
+      "status": "off",
+      "address": "192.168.1.72"
     }
   },
   {
     "model": "raspberium.device",
     "fields": {
-      "name": "Waterfall Pump",
-      "pin": 9,
+      "label": "Fogger",
+      "name": "fogger",
+      "pin": 0,
       "state": "auto",
-      "status": "on"
+      "status": "off",
+      "address": "192.168.1.71"
+    }
+  },
+  {
+    "model": "raspberium.device",
+    "fields": {
+      "label": "Waterfall",
+      "name": "waterfall",
+      "pin": 0,
+      "state": "auto",
+      "status": "off",
+      "address": "192.168.1.73"
     }
   }
 ]
