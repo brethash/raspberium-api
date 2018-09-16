@@ -18,9 +18,27 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class DeviceSerializer(serializers.HyperlinkedModelSerializer):
+    label = serializers.CharField(max_length=255)
+    # device
+    name = serializers.CharField(max_length=255)
+    # pin's physical number (NOT GPIO!!!)
+    pin = serializers.IntegerField()
+    # state of the pin
+    state = serializers.CharField(max_length=4)
+    # status of the device
+    status = serializers.CharField(max_length=3)
+    # the IP address of the Kasa Smart Plug
+    address = serializers.CharField(max_length=15)
+
+    def __init__(self, *args, **kwargs):
+        super(DeviceSerializer, self).__init__(*args, **kwargs)
+
+    def create(self, validated_data):
+        return Device.objects.create(**validated_data)
+
     class Meta:
         model = Device
-        fields = ("label", "name", "pin", "state", "status")
+        fields = ("label", "name", "pin", "state", "status", "address")
 
 
 class SmartPlugSerializer(serializers.HyperlinkedModelSerializer):

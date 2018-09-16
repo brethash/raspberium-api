@@ -29,13 +29,11 @@ class DigitalDeviceOn(DigitalDeviceApiView):
 
     def get(self, request, version, device_name, format=None):
         device = self.setup_device(device_name)
-        action = DigitalDeviceProcessor(device).on()
-        return Response({action})
+        return DigitalDeviceProcessor(device).on()
 
 
 class DigitalDeviceOff(DigitalDeviceApiView):
 
     def get(self, request, version, device_name, format=None):
         device = self.setup_device(device_name)
-        action = DigitalDeviceProcessor(device).off()
-        return Response({action})
+        return DigitalDeviceProcessor(device).off()
