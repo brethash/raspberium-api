@@ -14,7 +14,7 @@ services:
             - ./src/public:/var/www/html/public
         environment:
             - CADDY_FILE=Caddyfile.dev
-            - CADDY_EMAIL=bret@brethash.com
+            - CADDY_EMAIL=
     lirc:
         container_name: lirc
         build:
