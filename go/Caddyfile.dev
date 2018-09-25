@@ -1,0 +1,12 @@
+https://localhost {
+    root /var/www/html/public
+    log stdout
+    errors stdout
+
+    tls self_signed
+
+    proxy / python:8000 {
+        except /js /css /images
+        transparent
+    }
+}

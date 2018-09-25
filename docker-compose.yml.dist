@@ -1,0 +1,45 @@
+version: '3'
+services:
+    go:
+        container_name: go
+        build:
+            context: .
+            dockerfile: ./go/Dockerfile
+        ports:
+            - 80:80
+            - 443:443
+        links:
+            - python
+        volumes:
+            - ./src/public:/var/www/html/public
+        environment:
+            - CADDY_FILE=Caddyfile.dev
+            - CADDY_EMAIL=bret@brethash.com
+    lirc:
+        container_name: lirc
+        build:
+            context: .
+            dockerfile: ./lirc/Dockerfile
+        ports:
+            - 8765:8765
+        volumes:
+            - /opt/lirc:/etc/lirc
+        devices:
+            - /dev/lirc0:/dev/lirc0:rwm
+    python:
+        container_name: python
+        build:
+            context: .
+            dockerfile: ./python/Dockerfile
+        depends_on:
+          - lirc
+        volumes:
+            - ./src:/var/www/html
+        environment:
+            - MAIL_HOST=email-smtp.us-west-2.amazonaws.com
+            - MAIL_USERNAME=
+            - MAIL_PASSWORD=
+            - SNS_KEY=
+            - SNS_PASSWORD=
+            - SNS_TEXT=
+            - GOOGLE_API_KEY=

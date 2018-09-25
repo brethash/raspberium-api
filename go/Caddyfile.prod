@@ -1,0 +1,12 @@
+http://romancingthebrush.com http://www.romancingthebrush.com {
+    tls off
+
+    root /var/www/html/public
+    log stdout
+    errors stdout
+
+    proxy / python:8000 {
+        except /js /css /images
+        transparent
+    }
+}
