@@ -1,0 +1,10 @@
+[Unit]
+Description=Raspberium API
+
+[Service]
+Type=simple
+User=www-data
+ExecStart=/var/www/raspberium-api/gunicorn_start.sh
+
+[Install]
+WantedBy=multi-user.target
