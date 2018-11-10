@@ -1,3 +1,4 @@
+cachetools
 RPi.bme280
 smbus2
 Django==2.1.2
