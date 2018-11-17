@@ -1,5 +1,5 @@
 from api.raspberium.models import Device
 
 
-class IntakeFan(Device):
+class FanSystem(Device):
     pass

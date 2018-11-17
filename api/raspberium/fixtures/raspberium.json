@@ -1,6 +1,7 @@
 [
   {
     "model": "raspberium.device",
+    "pk": 0,
     "fields": {
       "label": "Lights",
       "name": "lights",
@@ -12,17 +13,19 @@
   },
   {
     "model": "raspberium.device",
+    "pk": 1,
     "fields": {
-      "label": "Drip Wall",
-      "name": "drip-wall",
+      "label": "Misting System",
+      "name": "misting-system",
       "pin": 0,
       "state": "auto",
       "status": "off",
-      "address": "192.168.1.72"
+      "address": "192.168.1.168"
     }
   },
   {
     "model": "raspberium.device",
+    "pk": 2,
     "fields": {
       "label": "Fogger",
       "name": "fogger",
@@ -34,13 +37,14 @@
   },
   {
     "model": "raspberium.device",
+    "pk": 3,
     "fields": {
-      "label": "Waterfall",
-      "name": "waterfall",
+      "label": "Fan System",
+      "name": "fan-system",
       "pin": 0,
       "state": "auto",
       "status": "off",
-      "address": "192.168.1.73"
+      "address": "192.168.1.29"
     }
   }
 ]

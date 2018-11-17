@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_crontab',
+    'django_cron',
     'api.raspberium',
     'py_irsend',
     'pyHS100'
@@ -72,8 +72,9 @@ TEMPLATES = [
     },
 ]
 
-CRONJOBS = [
-    ('*/5 * * * *', 'raspberium.cron.checkHumidity')
+CRON_CLASSES = [
+    "api.raspberium.cron.FanSystemCronJob.FanSystemCronJob",
+    "api.raspberium.cron.MistingSystemCronJob.MistingSystemCronJob",
 ]
 
 

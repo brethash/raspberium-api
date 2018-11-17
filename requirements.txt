@@ -3,7 +3,7 @@ RPi.bme280
 smbus2
 Django==2.1.2
 djangorestframework
-django_crontab
+django_cron
 django-choices
 python-lirc
 py_irsend
