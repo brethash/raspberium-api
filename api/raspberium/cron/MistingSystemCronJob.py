@@ -1,6 +1,7 @@
 import time
 
 from django_cron import CronJobBase, Schedule
+import logging
 
 from api.raspberium.domain.device.DigitalDevice import DigitalDevice
 from api.raspberium.models import Device
@@ -13,10 +14,11 @@ class MistingSystemCronJob(CronJobBase):
     code = 'raspberium.misting_system'
 
     def do(self):
+        log = logging.getLogger()
         try:
             misting_system = Device.objects.get(name__exact="misting-system")
         except Device.DoesNotExist:
-            print("Misting System not configured.")
+            log.exception("Misting System not configured.")
         else:
             if misting_system.state == "auto":
                 device = DigitalDevice(misting_system.address)
