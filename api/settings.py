@@ -75,6 +75,7 @@ TEMPLATES = [
 CRON_CLASSES = [
     "api.raspberium.cron.FanSystemCronJob.FanSystemCronJob",
     "api.raspberium.cron.MistingSystemCronJob.MistingSystemCronJob",
+    "api.raspberium.cron.MonitoringCronJob.MonitoringCronJob",
 ]
 
 
