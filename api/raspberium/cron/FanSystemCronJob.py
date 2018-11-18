@@ -1,3 +1,5 @@
+import logging
+
 from django_cron import CronJobBase, Schedule
 
 from api.raspberium.domain.device.DigitalDevice import DigitalDevice
@@ -12,10 +14,11 @@ class FanSystemCronJob(CronJobBase):
     code = 'raspberium.fan_system'
 
     def do(self):
+        log = logging.getLogger()
         try:
             fan_system = Device.objects.get(name__exact="fan-system")
         except Device.DoesNotExist:
-            print("Fan System not configured.")
+            log.exception("Fan System not configured.")
         else:
             if fan_system.state == "auto":
                 humidity = Bme280().getHumidity()

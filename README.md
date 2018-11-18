@@ -18,9 +18,14 @@
 9. `pip install gunicorn`.
 10. Run migrations and load fixtures: `python manage.py migrate && python manage.py loaddata raspberium.json`
 11. Open the crontab `sudo crontab -e` and then add the raspberium cronjob `* * * * * source /var/www/raspberium-api/venv/bin/activate && python /var/www/raspberium-api/manage.py runcrons > /var/www/raspberium-api/logs/cronjob.log`
-12. Install and Setup Nginx `apt-get install nginx`.
-13. `cp /var/www/raspberium-api/webserver/api.raspberium.com.conf /etc/nginx/sites-available`.
-14. `ln -s /etc/nginx/sites-available/api.raspberium.com.conf /etc/nginx/sites-enabled/`.
+12. Install and setup nginx: `apt-get install nginx`.
+13. Copy the nginx configuration file to nginx: `cp /var/www/raspberium-api/webserver/api.raspberium.com.conf /etc/nginx/sites-available`.
+14. Symlink the nginx configuration file to the sites-enabled directory: `ln -s /etc/nginx/sites-available/api.raspberium.com.conf /etc/nginx/sites-enabled/`.
 15. Copy and setup `/var/www/raspberium-api/webserver/raspberium-api-gunicorn.service`.
 16. [Enable I2C Interface](https://www.raspberrypi-spy.co.uk/2014/11/enabling-the-i2c-interface-on-the-raspberry-pi/).
-17. Allow read access on I2C inteface `sudo chmod 666 /dev/i2c-1`.
+17. Allow read access on I2C interface `sudo chmod 666 /dev/i2c-1`.
+
+### Configuration Instructions
+
+1. Obtain IP addresses for each smart plug at `/api/v1/device/available-addresses`.
+2. In your browser, navigate to `/devices/` and update each device with the addresses from step `1`.
