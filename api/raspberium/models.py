@@ -50,3 +50,18 @@ class Device(models.Model):
             else:
                 data[f.name] = f.value_from_object(instance)
         return data
+
+
+class SensorData(models.Model):
+    timestamp = models.DateTimeField(auto_now=True)
+    humidity = models.FloatField(editable=False)
+    temperature = models.FloatField(editable=False)  # recorded in celcius
+    pressure = models.FloatField(editable=False)
+
+    def __str__(self):
+        return "{} - {}".format(self.timestamp, self.humidity, self.temperature, self.pressure)
+
+    class Meta:
+        ordering = ('timestamp',)
+        verbose_name = 'sensor_data'
+        verbose_name_plural = 'sensor_datum'
