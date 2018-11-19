@@ -23,7 +23,7 @@ class FanSystemCronJob(CronJobBase):
             if fan_system.state == "auto":
                 humidity = Bme280().getHumidity()
                 device = DigitalDevice(fan_system.address)
-                if humidity < 60:
+                if humidity < 80:
                     device.off()
                 elif humidity > 90:
                     device.on()
