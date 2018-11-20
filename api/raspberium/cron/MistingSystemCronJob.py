@@ -23,5 +23,5 @@ class MistingSystemCronJob(CronJobBase):
             if misting_system.state == "auto":
                 device = DigitalDevice(misting_system.address)
                 device.on()
-                time.sleep(8)
+                time.sleep(10)
                 device.off()
